@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwmfk8juvblst"]
+
+[ext_resource type="Script" uid="uid://c747rork560ie" path="res://scripts/monster.gd" id="1_mrqeg"]
+[ext_resource type="Texture2D" uid="uid://cajkvs2aftlsg" path="res://icon.svg" id="2_ga5te"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vr0w3"]
+size = Vector2(109, 113)
+
+[node name="Monster" type="Node2D"]
+
+[node name="Monstro" type="CharacterBody2D" parent="."]
+position = Vector2(0, 1)
+input_pickable = true
+script = ExtResource("1_mrqeg")
+fase_path = NodePath("..")
+system_path = NodePath("../Control")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monstro"]
+position = Vector2(-1.5, 4.5)
+shape = SubResource("RectangleShape2D_vr0w3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Monstro"]
+texture = ExtResource("2_ga5te")
+
+[node name="LifeLabel" type="Label" parent="Monstro"]
+offset_left = -24.0
+offset_top = -102.0
+offset_right = 16.0
+offset_bottom = -79.0
