@@ -1,16 +1,16 @@
 [gd_scene load_steps=7 format=3 uid="uid://etkcmpkedwue"]
 
-[ext_resource type="Script" uid="uid://wv724db7oli8" path="res://scripts/phase.gd" id="1_04qyp"]
-[ext_resource type="Script" uid="uid://bdyjmcs6pxi65" path="res://scripts/character_body_2d.gd" id="2_j7wrs"]
-[ext_resource type="Texture2D" uid="uid://cajkvs2aftlsg" path="res://icon.svg" id="3_fws66"]
-[ext_resource type="Script" uid="uid://bi2d88kt1qda2" path="res://scripts/system_player.gd" id="5_3m5ht"]
-[ext_resource type="PackedScene" uid="uid://cwmfk8juvblst" path="res://scenes/monster.tscn" id="5_04qyp"]
+[ext_resource type="Script" uid="uid://wv724db7oli8" path="res://scripts/phase.gd" id="1_bv13e"]
+[ext_resource type="Script" uid="uid://bdyjmcs6pxi65" path="res://scripts/character_body_2d.gd" id="2_ysrna"]
+[ext_resource type="Texture2D" uid="uid://cajkvs2aftlsg" path="res://icon.svg" id="3_emkse"]
+[ext_resource type="Script" uid="uid://bi2d88kt1qda2" path="res://scripts/system_player.gd" id="4_awf35"]
+[ext_resource type="PackedScene" uid="uid://cwmfk8juvblst" path="res://scenes/monsters/rat.tscn" id="5_ej43l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wtcfe"]
 size = Vector2(109, 113)
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_04qyp")
+script = ExtResource("1_bv13e")
 
 [node name="PhaseLabel" type="Label" parent="."]
 offset_left = 301.0
@@ -19,22 +19,22 @@ offset_right = 833.0
 offset_bottom = 96.0
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(345, 331)
-script = ExtResource("2_j7wrs")
+position = Vector2(214, 142)
+script = ExtResource("2_ysrna")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-1.5, 4.5)
 shape = SubResource("RectangleShape2D_wtcfe")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("3_fws66")
+texture = ExtResource("3_emkse")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("5_3m5ht")
+script = ExtResource("4_awf35")
 
 [node name="ExpLabel" type="Label" parent="Control"]
 layout_mode = 0
@@ -43,5 +43,5 @@ offset_top = 249.0
 offset_right = 162.0
 offset_bottom = 297.0
 
-[node name="Monster" parent="." instance=ExtResource("5_04qyp")]
-position = Vector2(774, 331)
+[node name="Monster" parent="." instance=ExtResource("5_ej43l")]
+position = Vector2(208, 402)

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MonsterType" load_steps=4 format=3 uid="uid://dlqhs0ngms2sv"]
+
+[ext_resource type="Script" uid="uid://c0layn5uv46bw" path="res://scripts/loot.gd" id="1_x28ku"]
+[ext_resource type="Script" uid="uid://ba3v3wd37lvru" path="res://scripts/monster_type.gd" id="2_ty31w"]
+[ext_resource type="Texture2D" uid="uid://bsdlhsrdv7wib" path="res://images/Rat.png" id="3_ty31w"]
+
+[resource]
+script = ExtResource("2_ty31w")
+name = "Rat"
+health = 30
+damage = 0
+defense = 0
+experience_reward = 5
+gold_reward = 0
+possible_loot = Array[ExtResource("1_x28ku")]([])
+sprite = ExtResource("3_ty31w")
+animation_speed = 0.0
+metadata/_custom_type_script = "uid://ba3v3wd37lvru"

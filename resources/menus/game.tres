@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Menu" load_steps=2 format=3 uid="uid://vvc64uubls4"]
+
+[ext_resource type="Script" uid="uid://bo0dc36t1x630" path="res://scripts/menu.gd" id="1_cwhjc"]
+
+[resource]
+script = ExtResource("1_cwhjc")
+name = "game"
+metadata/_custom_type_script = "uid://bo0dc36t1x630"

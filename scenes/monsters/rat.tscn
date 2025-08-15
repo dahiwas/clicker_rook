@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cwmfk8juvblst"]
 
 [ext_resource type="Script" uid="uid://c747rork560ie" path="res://scripts/monster.gd" id="1_mrqeg"]
-[ext_resource type="Texture2D" uid="uid://cajkvs2aftlsg" path="res://icon.svg" id="2_ga5te"]
+[ext_resource type="Resource" uid="uid://dlqhs0ngms2sv" path="res://resources/monstros/rat.tres" id="2_acf8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vr0w3"]
 size = Vector2(109, 113)
@@ -12,15 +12,13 @@ size = Vector2(109, 113)
 position = Vector2(0, 1)
 input_pickable = true
 script = ExtResource("1_mrqeg")
-fase_path = NodePath("..")
-system_path = NodePath("../Control")
+type = ExtResource("2_acf8p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monstro"]
 position = Vector2(-1.5, 4.5)
 shape = SubResource("RectangleShape2D_vr0w3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Monstro"]
-texture = ExtResource("2_ga5te")
 
 [node name="LifeLabel" type="Label" parent="Monstro"]
 offset_left = -24.0

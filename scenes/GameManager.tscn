@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqmksbngir4d7"]
+
+[ext_resource type="Script" uid="uid://c42mnn0pagkv1" path="res://scripts/game_manager.gd" id="1_34tde"]
+[ext_resource type="Resource" uid="uid://4pml7lnowrrh" path="res://resources/mundos/world1.tres" id="2_4dhvd"]
+[ext_resource type="Resource" uid="uid://vvc64uubls4" path="res://resources/menus/game.tres" id="2_qppyr"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_34tde")
+current_world = ExtResource("2_4dhvd")
+current_menu = ExtResource("2_qppyr")
