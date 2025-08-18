@@ -1,4 +1,5 @@
-extends CharacterBody2D
+extends Node2D
+class_name Monster
 
 @export var type: MonsterType
 
@@ -7,8 +8,7 @@ extends CharacterBody2D
 @onready var script_fase: Node = get_node(fase_path)
 @onready var system_phase: Node = get_node(system_path)
 
-@onready var sprite2d: Sprite2D = $Sprite2D
-@onready var life_label: Label = $LifeLabel
+
 var life: int = 1
 
 func _ready() -> void:
@@ -18,18 +18,15 @@ func _ready() -> void:
 
 func _apply_type() -> void:
 	life = type.health
-	if sprite2d and type.sprite:
-		sprite2d.texture = type.sprite
 	if has_node("AnimationPlayer"):
 		$AnimationPlayer.playback_speed = max(type.animation_speed, 0.01)
 	update_life_label()
 
-func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		dealth_life()
+
 
 func dealth_life():
 	life -= 1
+	print(life)
 	death_monster()
 	update_life_label()
 
@@ -45,6 +42,7 @@ func death_monster():
 			script_fase.next_step()
 		life = type.health
 		update_life_label()
+		delete_self()
 
 func _drop_loot_from_type() -> void:
 	for loot in type.possible_loot:
@@ -57,4 +55,6 @@ func _spawn_loot(loot) -> void:
 
 func update_life_label():
 	var n: String = type.name if type else "Monstro"
-	life_label.text = "%s — Vida: %d" % [n, life]
+
+func delete_self() -> void:
+	queue_free()

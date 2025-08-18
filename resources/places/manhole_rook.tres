@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Place" load_steps=3 format=3 uid="uid://3islleb6k4j"]
+
+[ext_resource type="PackedScene" uid="uid://cwmfk8juvblst" path="res://scenes/monsters/rat.tscn" id="1_h0h72"]
+[ext_resource type="Script" uid="uid://bagbd5yev3nkr" path="res://scripts/place_r.gd" id="3_by5mn"]
+
+[resource]
+script = ExtResource("3_by5mn")
+name = "manhole"
+description = "Bueiro de rookgaard, onde todo começam"
+available_monsters = Array[PackedScene]([ExtResource("1_h0h72")])
+monster_spawn_rate = 0.0
+required_level = 0
+unlocked = false

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="World" load_steps=6 format=3 uid="uid://4pml7lnowrrh"]
+
+[ext_resource type="Script" uid="uid://bagbd5yev3nkr" path="res://scripts/place_r.gd" id="1_a7832"]
+[ext_resource type="Resource" uid="uid://3islleb6k4j" path="res://resources/places/manhole_rook.tres" id="2_m48fa"]
+[ext_resource type="Script" uid="uid://1u5sc4ch4206" path="res://scripts/world_r.gd" id="3_lgxwj"]
+[ext_resource type="Script" path="res://scripts/monster_type.gd" id="3_m48fa"]
+
+[sub_resource type="Resource" id="Resource_lgxwj"]
+script = ExtResource("1_a7832")
+name = "south_rook"
+description = ""
+available_monsters = Array[ExtResource("3_m48fa")]([])
+monster_spawn_rate = 0.0
+required_level = 0
+unlocked = false
+metadata/_custom_type_script = "uid://bagbd5yev3nkr"
+
+[resource]
+script = ExtResource("3_lgxwj")
+name = "Rookgaard"
+description = "Primeiro mundo"
+places = Array[ExtResource("1_a7832")]([ExtResource("2_m48fa"), SubResource("Resource_lgxwj")])
+required_level = 0
+unlocked = true
