@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwmfk8juvblst"]
+[gd_scene load_steps=6 format=3 uid="uid://cwmfk8juvblst"]
 
 [ext_resource type="Script" uid="uid://c747rork560ie" path="res://scripts/monster.gd" id="1_mrqeg"]
 [ext_resource type="Resource" uid="uid://dlqhs0ngms2sv" path="res://resources/monstros/rat.tres" id="2_acf8p"]
+[ext_resource type="Script" uid="uid://cxl17f2qsesxx" path="res://scripts/monster_collision.gd" id="3_lyrav"]
 [ext_resource type="Texture2D" uid="uid://bsdlhsrdv7wib" path="res://images/Rat.png" id="3_pssxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vr0w3"]
@@ -15,6 +16,8 @@ type = ExtResource("2_acf8p")
 [node name="Monstro" type="CharacterBody2D" parent="."]
 position = Vector2(0, 1)
 input_pickable = true
+script = ExtResource("3_lyrav")
+monster_path = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Monstro"]
 position = Vector2(-1.5, 4.5)
@@ -28,3 +31,12 @@ offset_left = -24.0
 offset_top = -102.0
 offset_right = 16.0
 offset_bottom = -79.0
+
+[node name="RectAttack" type="ReferenceRect" parent="Monstro"]
+visible = false
+offset_left = -36.0
+offset_top = -21.0
+offset_right = 35.0
+offset_bottom = 48.0
+border_width = 4.2
+editor_only = false

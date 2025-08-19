@@ -6,6 +6,8 @@ extends Node2D
 
 @onready var monster_container := $MonsterContainer
 
+var respawn_delay = 2
+
 func _ready() -> void:
 	if world:
 		print("Carregando mundo:", world.name)
@@ -37,8 +39,16 @@ func spawn_monster(parent: Node) -> void:
 		
 		var monster := inst as Monster
 		if monster:
+			print('Conectando sinal de monstro')
+			monster.connect("died", Callable(self, "_on_monster_died"))
 			print('Voce encontrou um ', monster.type.name)
 			print('Vida: ',monster.life)
 		
-	
+func _on_monster_died(monster_type) -> void:
+	# respawn suave no próximo frame (ou espere um pouquinho)
+	# call_deferred evita conflitos com o momento do queue_free
+	print('Recebendo sinal de morte')
+	if respawn_delay > 0.0:
+		await get_tree().create_timer(respawn_delay).timeout
+	call_deferred("spawn_monster", monster_container)
 	

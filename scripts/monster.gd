@@ -1,13 +1,14 @@
 extends Node2D
 class_name Monster
 
+signal died(monster_type: MonsterType)
+
 @export var type: MonsterType
 
 @export var fase_path: NodePath
 @export var system_path: NodePath
 @onready var script_fase: Node = get_node(fase_path)
 @onready var system_phase: Node = get_node(system_path)
-
 
 var life: int = 1
 
@@ -21,8 +22,6 @@ func _apply_type() -> void:
 	if has_node("AnimationPlayer"):
 		$AnimationPlayer.playback_speed = max(type.animation_speed, 0.01)
 	update_life_label()
-
-
 
 func dealth_life():
 	life -= 1
@@ -40,9 +39,12 @@ func death_monster():
 			_drop_loot_from_type()
 		if script_fase and script_fase.has_method("next_step"):
 			script_fase.next_step()
-		life = type.health
+		#life = type.health
 		update_life_label()
+		print('Emitindo sinal de morte')
+		emit_signal("died", type)
 		delete_self()
+		
 
 func _drop_loot_from_type() -> void:
 	for loot in type.possible_loot:
@@ -55,6 +57,7 @@ func _spawn_loot(loot) -> void:
 
 func update_life_label():
 	var n: String = type.name if type else "Monstro"
+	$Monstro/LifeLabel.text = str(life)
 
 func delete_self() -> void:
 	queue_free()
